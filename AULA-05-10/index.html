@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Números</title>
+</head>
+<body>
+    <script>
+        
+        let soma = 0; let quantidade = 0; let maior = null; let menor = null; let somaPares = 0; let quantidadePares = 0;
+
+        while (true) {
+            let numero = parseInt(prompt("Digite um número (ou 30000 para finalizar):"));
+
+
+            if (numero === 30000) {
+                break;
+            }
+
+            
+            soma += numero;
+            quantidade++;
+
+            if (maior === null || numero > maior) {
+                maior = numero;
+            }
+
+    
+            if (menor === null || numero < menor) {
+                menor = numero;
+            }
+
+            
+            if (numero % 2 === 0) {
+                somaPares += numero;
+                quantidadePares++;
+            }
+        }
+
+        
+        let media = quantidade > 0 ? soma / quantidade : 0;
+        let mediaPares = quantidadePares > 0 ? somaPares / quantidadePares : 0;
+        let quantidadeImpares = quantidade - quantidadePares;
+        let porcentagemImpares = quantidade > 0 ? (quantidadeImpares / quantidade) * 100 : 0;
+
+        
+        document.write("<h2>Resultados:</h2>");
+        document.write("Soma dos números: " + soma + "<br>");
+        document.write("Quantidade de números: " + quantidade + "<br>");
+        document.write("Média dos números: " + media.toFixed(2) + "<br>");
+        document.write("Maior número: " + maior + "<br>");
+        document.write("Menor número: " + menor + "<br>");
+        document.write("Média dos números pares: " + mediaPares.toFixed(2) + "<br>");
+        document.write("Porcentagem de números ímpares: " + porcentagemImpares.toFixed(2) + "%<br>");
+    </script>
+</body>
+</html>
